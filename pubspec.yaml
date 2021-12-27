@@ -1,0 +1,24 @@
+name: flutter_logging_extensions
+description: Flutter extensions for logging
+version: 0.0.1
+homepage: https://github.com/wim07101993/flutter_logging_extensions
+repository: https://github.com/wim07101993/flutter_logging_extensions
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.4
+  logging_extensions:
+    git:
+      url: https://github.com/wim07101993/logging_extensions.git
+      ref: master
+
+flutter:
