@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_logging_extensions/src/fields/fields_screen.dart';
 import 'package:flutter_logging_extensions/src/filters/filter_screen.dart';
 
-import 'logs_controller.dart';
+import 'models/logs_controller.dart';
 
 class OptionsButton extends StatelessWidget {
   const OptionsButton({Key? key}) : super(key: key);

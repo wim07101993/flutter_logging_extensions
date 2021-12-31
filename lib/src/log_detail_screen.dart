@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
 import 'package:flutter_logging_extensions/src/logs_controller_provider.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 import 'package:logging_extensions/logging_extensions.dart';
 
 import 'log_detail.dart';

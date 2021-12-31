@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_logging_extensions/src/filters/select_loggers_dialog.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 
 class LoggerSelector extends StatelessWidget {
   const LoggerSelector({Key? key}) : super(key: key);

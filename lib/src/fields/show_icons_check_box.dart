@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
+import 'package:flutter_logging_extensions/src/models/field_visibilities.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 
 class ShowIconCheckBox extends StatelessWidget {
   const ShowIconCheckBox({Key? key}) : super(key: key);
@@ -12,9 +13,7 @@ class ShowIconCheckBox extends StatelessWidget {
       builder: (context, fields, oldWidget) => Row(children: [
         Checkbox(
           value: fields.icon,
-          onChanged: (v) {
-            LogsController.of(context).fields.value = fields.copyWith(icon: v);
-          },
+          onChanged: (v) => controller.fields.value = fields.copyWith(icon: v),
         ),
         const Text('Icon'),
       ]),

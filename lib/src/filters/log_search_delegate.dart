@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_logging_extensions/src/log_list_item.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 
 class LogSearchDelegate extends SearchDelegate {
   @override

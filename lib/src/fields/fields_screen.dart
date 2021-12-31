@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_logging_extensions/src/fields/show_icons_check_box.dart';
 import 'package:flutter_logging_extensions/src/fields/show_logger_name_check_box.dart';
 import 'package:flutter_logging_extensions/src/fields/show_time_check_box.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
 import 'package:flutter_logging_extensions/src/logs_controller_provider.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 
 class FieldsScreen extends StatelessWidget {
   const FieldsScreen({

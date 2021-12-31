@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'logs_controller.dart';
+import 'models/logs_controller.dart';
 
 class LogsControllerProvider extends InheritedWidget {
   const LogsControllerProvider({

@@ -2,15 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:logging_extensions/logging_extensions.dart';
 
 class LogLevelToIconConverter extends LogLevelConverter<IconData?> {
-  const LogLevelToIconConverter()
-      : super(
-          defaultValue: null,
-          finest: Icons.code,
-          finer: Icons.bug_report,
-          config: Icons.settings,
-          info: Icons.info,
-          warning: Icons.warning,
-          severe: Icons.error,
-          shout: Icons.bolt,
+  const LogLevelToIconConverter({
+    IconData? defaultValue,
+    IconData? finest,
+    IconData? finer,
+    IconData? fine,
+    IconData? config,
+    IconData? info,
+    IconData? warning,
+    IconData? severe,
+    IconData? shout,
+  }) : super(
+          defaultValue: defaultValue,
+          finest: finest ?? Icons.code,
+          finer: finer ?? Icons.bug_report,
+          fine: fine,
+          config: config ?? Icons.settings,
+          info: info ?? Icons.info,
+          warning: warning ?? Icons.warning,
+          severe: severe ?? Icons.error,
+          shout: shout ?? Icons.bolt,
         );
 }

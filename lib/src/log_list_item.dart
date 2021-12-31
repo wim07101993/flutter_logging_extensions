@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
+import 'package:flutter_logging_extensions/src/models/field_visibilities.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 import 'package:logging_extensions/logging_extensions.dart';
 
 import 'log_detail_screen.dart';

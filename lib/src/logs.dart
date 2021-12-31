@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_logging_extensions/src/converters/log_level_to_color_converter.dart';
 import 'package:flutter_logging_extensions/src/converters/log_level_to_icon_converter.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 import 'package:logging_extensions/logging_extensions.dart';
 
 import 'log_list_item.dart';

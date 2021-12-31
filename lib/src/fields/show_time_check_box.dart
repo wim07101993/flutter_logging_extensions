@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
+import 'package:flutter_logging_extensions/src/models/field_visibilities.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 
 class ShowTimeCheckBox extends StatelessWidget {
   const ShowTimeCheckBox({Key? key}) : super(key: key);
@@ -12,11 +13,7 @@ class ShowTimeCheckBox extends StatelessWidget {
       builder: (context, fields, oldWidget) => Row(children: [
         Checkbox(
           value: fields.time,
-          onChanged: (v) {
-            LogsController.of(context).fields.value = fields.copyWith(
-              time: v,
-            );
-          },
+          onChanged: (v) => controller.fields.value = fields.copyWith(time: v),
         ),
         const Text('Time'),
       ]),

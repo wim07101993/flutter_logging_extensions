@@ -8,8 +8,8 @@ import 'package:flutter_logging_extensions/src/options_button.dart';
 import 'package:logging_extensions/logging_extensions.dart';
 
 import 'logs.dart';
-import 'logs_controller.dart';
 import 'logs_controller_provider.dart';
+import 'models/logs_controller.dart';
 
 class LogsScreen extends StatefulWidget {
   const LogsScreen({

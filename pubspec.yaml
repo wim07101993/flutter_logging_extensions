@@ -11,14 +11,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  logging_extensions:
+    git:
+      url: https://github.com/wim07101993/logging_extensions.git
+      ref: master
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.4
-  logging_extensions:
-    git:
-      url: https://github.com/wim07101993/logging_extensions.git
-      ref: master
+  mocktail:
+  faker:
 
 flutter:

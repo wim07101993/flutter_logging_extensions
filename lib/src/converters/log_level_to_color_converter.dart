@@ -2,15 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:logging_extensions/logging_extensions.dart';
 
 class LogLevelToColorConverter extends LogLevelConverter<Color?> {
-  const LogLevelToColorConverter()
-      : super(
-          defaultValue: null,
-          finest: Colors.grey,
-          finer: Colors.grey,
-          config: Colors.green,
-          info: Colors.blue,
-          warning: Colors.deepOrange,
-          severe: Colors.red,
-          shout: Colors.purple,
+  const LogLevelToColorConverter({
+    Color? defaultValue,
+    Color? finest,
+    Color? finer,
+    Color? fine,
+    Color? config,
+    Color? info,
+    Color? warning,
+    Color? severe,
+    Color? shout,
+  }) : super(
+          defaultValue: defaultValue,
+          finest: finest ?? Colors.grey,
+          finer: finer ?? Colors.grey,
+          fine: fine,
+          config: config ?? Colors.green,
+          info: info ?? Colors.blue,
+          warning: warning ?? Colors.deepOrange,
+          severe: severe ?? Colors.red,
+          shout: shout ?? Colors.purple,
         );
 }

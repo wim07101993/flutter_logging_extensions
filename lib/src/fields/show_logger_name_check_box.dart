@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_logging_extensions/src/logs_controller.dart';
+import 'package:flutter_logging_extensions/src/models/field_visibilities.dart';
+import 'package:flutter_logging_extensions/src/models/logs_controller.dart';
 
 class ShowLoggerNameCheckBox extends StatelessWidget {
   const ShowLoggerNameCheckBox({Key? key}) : super(key: key);
@@ -12,10 +13,8 @@ class ShowLoggerNameCheckBox extends StatelessWidget {
       builder: (context, fields, oldWidget) => Row(children: [
         Checkbox(
           value: fields.loggerName,
-          onChanged: (v) {
-            LogsController.of(context).fields.value = fields.copyWith(
-              loggerName: v,
-            );
+          onChanged: (value) {
+            controller.fields.value = fields.copyWith(loggerName: value);
           },
         ),
         const Text('Logger name'),
