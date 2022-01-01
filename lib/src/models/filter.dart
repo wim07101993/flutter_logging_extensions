@@ -4,7 +4,7 @@ import 'package:logging_extensions/logging_extensions.dart';
 class Filter extends ChangeNotifier {
   Filter({
     String searchString = '',
-    Level minimumLevel = Level.FINEST,
+    Level minimumLevel = Level.ALL,
     Map<String, bool> loggers = const {},
   })  : searchString = ValueNotifier(searchString),
         minimumLevel = ValueNotifier(minimumLevel),

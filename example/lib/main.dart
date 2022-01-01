@@ -34,7 +34,10 @@ void main() {
   );
   logger.shout('I told you to look out for null-pointers');
 
-  final controller = LogsController(logs: sink.logRecords);
+  final controller = LogsController(
+    logs: sink.logRecords,
+    filter: Filter(minimumLevel: Level.SEVERE),
+  );
   runApp(MaterialApp(
     home: LogsScreen(controller: controller),
   ));

@@ -65,7 +65,10 @@ class LogsController extends ChangeNotifier
 
   void updateLevels() {
     final oldLevels = levels.value;
-    final newLevels = _allLogs.map((l) => l.level).toSet().toList()
+    final newLevels = {
+      ...Level.LEVELS,
+      ..._allLogs.map((l) => l.level),
+    }.toList()
       ..sort((a, b) => a.value.compareTo(b.value));
     if (newLevels.length != oldLevels.length) {
       levels.value = newLevels;
