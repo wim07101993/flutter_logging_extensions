@@ -3,7 +3,6 @@ import 'package:flutter_logging_extensions/flutter_logging_extensions.dart';
 import 'package:flutter_logging_extensions/src/fields/show_icons_check_box.dart';
 import 'package:flutter_logging_extensions/src/fields/show_logger_name_check_box.dart';
 import 'package:flutter_logging_extensions/src/fields/show_time_check_box.dart';
-import 'package:flutter_logging_extensions/src/models/field_visibilities.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
