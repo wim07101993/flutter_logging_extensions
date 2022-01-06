@@ -9,7 +9,7 @@ class LevelFilterSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = LogsController.of(context);
     final minimumLevelNotifier = controller.filter.minimumLevel;
-    final levelsNotifier = controller.levels;
+    final levelsNotifier = controller.visibleLevels;
     return ValueListenableBuilder<Level>(
       valueListenable: minimumLevelNotifier,
       builder: (context, level, oldWidget) {

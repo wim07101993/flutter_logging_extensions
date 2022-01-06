@@ -9,11 +9,12 @@ class ShowIconCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = LogsController.of(context);
     return ValueListenableBuilder<FieldVisibilitiesData>(
-      valueListenable: controller.fields,
+      valueListenable: controller.visibleFields,
       builder: (context, fields, oldWidget) => Row(children: [
         Checkbox(
           value: fields.icon,
-          onChanged: (v) => controller.fields.value = fields.copyWith(icon: v),
+          onChanged: (v) =>
+              controller.visibleFields.value = fields.copyWith(icon: v),
         ),
         const Text('Icon'),
       ]),

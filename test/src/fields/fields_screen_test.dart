@@ -63,7 +63,7 @@ void main() {
     testWidgets('should provide controller to other widgets in the tree',
         (tester) async {
       // arrange
-      fakeController.fields.value = const FieldVisibilitiesData(
+      fakeController.visibleFields.value = const FieldVisibilitiesData(
         loggerName: false,
         icon: false,
         time: false,
@@ -76,7 +76,7 @@ void main() {
       expect(checkBox.value, false);
 
       // act
-      fakeController.fields.value = const FieldVisibilitiesData(
+      fakeController.visibleFields.value = const FieldVisibilitiesData(
         loggerName: true,
         icon: true,
         time: true,

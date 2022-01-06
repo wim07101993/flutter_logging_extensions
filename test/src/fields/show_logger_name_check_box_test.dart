@@ -40,7 +40,8 @@ void main() {
       (tester) async {
     // arrange
     final checkboxFinder = find.byType(Checkbox);
-    final originalShowLoggerName = fakeController.fields.value.loggerName;
+    final originalShowLoggerName =
+        fakeController.visibleFields.value.loggerName;
     final newShowLoggerName = !originalShowLoggerName;
 
     // act
@@ -51,7 +52,8 @@ void main() {
     expect(checkbox.value, originalShowLoggerName);
 
     // act
-    fakeController.fields.value = fakeController.fields.value.copyWith(
+    fakeController.visibleFields.value =
+        fakeController.visibleFields.value.copyWith(
       loggerName: newShowLoggerName,
     );
     await tester.pumpAndSettle();

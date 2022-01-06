@@ -17,7 +17,7 @@ class SelectLoggersDialog extends StatelessWidget {
     return LogsControllerProvider.builder(
       controller: controller,
       builder: (context) => ValueListenableBuilder<List<String>>(
-        valueListenable: controller.loggers,
+        valueListenable: controller.visibleLoggers,
         builder: (context, allLoggers, oldWidget) => SimpleDialog(
           title: const Text('Select loggers'),
           children: [

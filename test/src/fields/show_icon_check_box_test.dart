@@ -40,7 +40,7 @@ void main() {
       (tester) async {
     // arrange
     final checkboxFinder = find.byType(Checkbox);
-    final originalShowIcon = fakeController.fields.value.icon;
+    final originalShowIcon = fakeController.visibleFields.value.icon;
     final newShowIcon = !originalShowIcon;
 
     // act
@@ -51,7 +51,8 @@ void main() {
     expect(checkbox.value, originalShowIcon);
 
     // act
-    fakeController.fields.value = fakeController.fields.value.copyWith(
+    fakeController.visibleFields.value =
+        fakeController.visibleFields.value.copyWith(
       icon: newShowIcon,
     );
     await tester.pumpAndSettle();

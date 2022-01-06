@@ -8,20 +8,21 @@ import 'package:logging_extensions/logging_extensions.dart';
 class LogsController extends ChangeNotifier
     implements ValueListenable<Iterable<LogRecord>> {
   LogsController({
-    List<LogRecord> logs = const [],
+    List<LogRecord>? logs,
     Filter? filter,
     FieldVisibilities? fields,
-  })  : filter = filter ?? Filter(),
-        fields = fields ?? FieldVisibilities(),
-        loggers = ValueNotifier([]),
-        levels = ValueNotifier([]),
-        _allLogs = logs {
-    this.filter.addListener(notifyListeners);
+  })
+      : filter = filter ?? Filter(),
+        visibleFields = fields ?? FieldVisibilities(),
+        visibleLoggers = ValueNotifier([]),
+        visibleLevels = ValueNotifier([]),
+        _allLogs = logs ?? [] {
+    this.filter.addListener(super.notifyListeners);
     updateLoggers();
     updateLevels();
   }
 
-  final FieldVisibilities fields;
+  final FieldVisibilities visibleFields;
   final Filter filter;
 
   List<LogRecord> _allLogs;
@@ -29,33 +30,43 @@ class LogsController extends ChangeNotifier
   @override
   Iterable<LogRecord> get value => _allLogs.where(filter.apply);
 
-  final ValueNotifier<List<String>> loggers;
-  final ValueNotifier<List<Level>> levels;
+  final ValueNotifier<List<String>> visibleLoggers;
+  final ValueNotifier<List<Level>> visibleLevels;
 
   set value(Iterable<LogRecord> value) {
-    _allLogs = value.toList(growable: false);
+    _allLogs = value.toList();
     notifyListeners();
+  }
+
+  void addLog(LogRecord logRecord) {
+    _allLogs.add(logRecord);
+    notifyListeners();
+  }
+
+  @override
+  void notifyListeners() {
     updateLoggers();
     updateLevels();
+    super.notifyListeners();
   }
 
   void updateLoggers() {
-    final oldLoggers = loggers.value;
+    final oldLoggers = visibleLoggers.value;
     final newLoggers = _allLogs.map((l) => l.loggerName).toSet().toList()
       ..sort();
     if (newLoggers.length != oldLoggers.length) {
-      loggers.value = newLoggers;
+      visibleLoggers.value = newLoggers;
     } else {
       for (var i = 0; i < newLoggers.length; i++) {
         if (newLoggers[i] != oldLoggers[i]) {
-          loggers.value = newLoggers;
+          visibleLoggers.value = newLoggers;
           break;
         }
       }
     }
 
     final selectedLoggers = Map<String, bool>.from(filter.loggers.value);
-    for (final logger in loggers.value) {
+    for (final logger in visibleLoggers.value) {
       if (!selectedLoggers.containsKey(logger)) {
         selectedLoggers[logger] = true;
       }
@@ -64,18 +75,18 @@ class LogsController extends ChangeNotifier
   }
 
   void updateLevels() {
-    final oldLevels = levels.value;
+    final oldLevels = visibleLevels.value;
     final newLevels = {
       ...Level.LEVELS,
       ..._allLogs.map((l) => l.level),
     }.toList()
       ..sort((a, b) => a.value.compareTo(b.value));
     if (newLevels.length != oldLevels.length) {
-      levels.value = newLevels;
+      visibleLevels.value = newLevels;
     } else {
       for (var i = 0; i < newLevels.length; i++) {
         if (newLevels[i] != oldLevels[i]) {
-          levels.value = newLevels;
+          visibleLevels.value = newLevels;
           break;
         }
       }
@@ -84,7 +95,7 @@ class LogsController extends ChangeNotifier
 
   static LogsController of(BuildContext context) {
     final result =
-        context.dependOnInheritedWidgetOfExactType<LogsControllerProvider>();
+    context.dependOnInheritedWidgetOfExactType<LogsControllerProvider>();
     if (result == null) {
       throw AssertionError('No LogsController found in context');
     }

@@ -26,7 +26,7 @@ class LogListItem extends StatelessWidget {
     final theme = Theme.of(context);
     final controller = LogsController.of(context);
     return ValueListenableBuilder<FieldVisibilitiesData>(
-      valueListenable: controller.fields,
+      valueListenable: controller.visibleFields,
       builder: (context, fields, oldWidget) => ListTile(
         visualDensity: visualDensity,
         leading: _icon(theme, fields, icon, color),

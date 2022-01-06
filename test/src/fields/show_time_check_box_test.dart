@@ -13,7 +13,8 @@ void main() {
     fakeValue = faker.randomGenerator.boolean();
 
     fakeController = LogsController();
-    fakeController.fields.value = fakeController.fields.value.copyWith(
+    fakeController.visibleFields.value =
+        fakeController.visibleFields.value.copyWith(
       time: fakeValue,
     );
   });
@@ -58,7 +59,8 @@ void main() {
     expect(checkbox.value, fakeValue);
 
     // act
-    fakeController.fields.value = fakeController.fields.value.copyWith(
+    fakeController.visibleFields.value =
+        fakeController.visibleFields.value.copyWith(
       time: fakeNewValue,
     );
     await tester.pumpAndSettle();
@@ -79,6 +81,6 @@ void main() {
     await tester.pumpAndSettle();
 
     // assert
-    expect(fakeController.fields.value.time, !fakeValue);
+    expect(fakeController.visibleFields.value.time, !fakeValue);
   });
 }

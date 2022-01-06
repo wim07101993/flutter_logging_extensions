@@ -7,7 +7,7 @@ class SelectAllLoggersCheckBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = LogsController.of(context);
-    final allLoggersNotifier = controller.loggers;
+    final allLoggersNotifier = controller.visibleLoggers;
     final selectedLoggersNotifier = controller.filter.loggers;
     return Row(children: [
       ValueListenableBuilder<Map<String, bool>>(

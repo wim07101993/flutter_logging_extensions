@@ -9,12 +9,12 @@ class ShowLoggerNameCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = LogsController.of(context);
     return ValueListenableBuilder<FieldVisibilitiesData>(
-      valueListenable: controller.fields,
+      valueListenable: controller.visibleFields,
       builder: (context, fields, oldWidget) => Row(children: [
         Checkbox(
           value: fields.loggerName,
           onChanged: (value) {
-            controller.fields.value = fields.copyWith(loggerName: value);
+            controller.visibleFields.value = fields.copyWith(loggerName: value);
           },
         ),
         const Text('Logger name'),
