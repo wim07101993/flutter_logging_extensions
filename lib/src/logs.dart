@@ -37,6 +37,7 @@ class _LogsState extends State<Logs> {
       builder: (context, value, oldWidget) {
         final logs = value.toList(growable: false);
         if (scrollController.positions.isNotEmpty &&
+            scrollController.position.hasContentDimensions &&
             scrollController.offset ==
                 scrollController.position.maxScrollExtent) {
           scrollToBottom();
