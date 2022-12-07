@@ -40,12 +40,15 @@ class LoggerSelector extends StatelessWidget {
             : loggers.length == 1
                 ? Text(loggers[0])
                 : RichText(
-                    text: TextSpan(children: [
-                      ...loggers
-                          .take(loggers.length - 2)
-                          .map((l) => TextSpan(text: l)),
-                      TextSpan(text: loggers.last),
-                    ]),
+                    text: TextSpan(
+                      children: [
+                        ...loggers
+                            .take(loggers.length - 2)
+                            .map((l) => TextSpan(text: l)),
+                        TextSpan(text: loggers.last),
+                      ],
+                      style: theme.textTheme.bodyText2,
+                    ),
                   ),
       ],
     );
